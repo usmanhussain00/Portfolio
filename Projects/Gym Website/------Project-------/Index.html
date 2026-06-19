@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+    *{
+        font-family:'Poppins',sans-serif;
+        scroll-behavior:smooth;
+    }
+
+    body{
+        background:#0d0d0d;
+        color:white;
+        overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+        background:rgba(0,0,0,.9)!important;
+        backdrop-filter:blur(10px);
+        box-shadow:0 0 25px rgba(255,152,0,.15);
+    }
+
+    .navbar-brand{
+        color:#ff9800!important;
+        font-size:2rem;
+        font-weight:800;
+    }
+
+    .nav-link{
+        transition:.3s;
+    }
+
+    .nav-link:hover{
+        color:#ff9800!important;
+        transform:translateY(-2px);
+    }
+
+    /* HERO */
+
+    .img-carousel{
+        height:90vh;
+        object-fit:cover;
+        filter:brightness(40%);
+    }
+
+    .carousel-caption{
+        bottom:30%;
+    }
+
+    .carousel-caption h5{
+        font-size:4rem;
+        font-weight:800;
+        text-shadow:0 0 30px rgba(255,152,0,.7);
+    }
+
+    /* CARDS */
+
+    .card{
+        background:#171717;
+        color:white;
+        border:none;
+        border-radius:20px;
+        overflow:hidden;
+        transition:.4s;
+    }
+
+    .card:hover{
+        transform:translateY(-12px);
+        box-shadow:0 0 35px rgba(255,152,0,.35);
+    }
+
+    .img-product-card{
+        width:100%;
+        height:300px;
+        object-fit:cover;
+        transition:.5s;
+    }
+
+    .card:hover .img-product-card{
+        transform:scale(1.08);
+    }
+
+    /* MEMBERSHIP */
+
+    .border-warning{
+        box-shadow:0 0 35px rgba(255,152,0,.4);
+        transform:scale(1.04);
+    }
+
+    /* BUTTONS */
+
+    .btn-warning{
+        font-weight:600;
+        transition:.3s;
+    }
+
+    .btn-warning:hover{
+        transform:scale(1.05);
+    }
+
+    /* TESTIMONIALS */
+
+    .card.mt-3{
+        background:#1b1b1b;
+        border-left:4px solid orange;
+    }
+
+    /* MAP */
+
+    iframe{
+        filter:grayscale(15%) contrast(110%);
+    }
+
+    /* FOOTER */
+
+    footer{
+        background:#050505!important;
+    }
+
+    footer .card{
+        background:transparent;
+    }
+
+    footer h3{
+        color:#ff9800!important;
+    }
+
+    /* SOCIAL BUTTONS */
+
+    .rounded-circle{
+        transition:.3s;
+    }
+
+    .rounded-circle:hover{
+        transform:translateY(-5px) scale(1.1);
+    }
+
+    /* SCROLLBAR */
+
+    ::-webkit-scrollbar{
+        width:10px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background:#ff9800;
+        border-radius:20px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+        .img-carousel{
+            height:60vh;
+        }
+
+        .carousel-caption h5{
+            font-size:2rem;
+        }
+
+        .w-50{
+            width:90%!important;
+        }
+
+        .card.mt-3{
+            margin-left:auto!important;
+            margin-right:auto!important;
+            max-width:95%!important;
+        }
+    }
+   
+    </style>
+
+
+</head>
+<body>
+
+    <!-- the navigation area -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <!-- main div inside the nav  -->
+        <div class="container-fluid">
+            <!-- the brand logo  -->
+             <h3 class="navbar-brand ms-2 animate__animated animate__zoomIn" >Sharp</h3>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- the navbar area  -->
+            <div class="collapse navbar-collapse" id="NavbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="Template/About/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Template/Contact/contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Template/Sign up/index.html">SignUp</a>
+                    </li>
+                </ul>
+
+                <!-- the search bar  -->
+                <form class="d-flex" action="">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button type="submit" class="btn btn-outline-warning">Search</button>
+                </form>
+            </div>
+
+        </div>
+        
+    </nav>
+
+    <!-- the hero section -->
+    <div id="GymSlideshow" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        
+        <!-- the indicators  -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#GymSlideshow" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#GymSlideshow" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#GymSlideshow" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <!-- the slideshow  -->
+         <div class="carousel-inner">
+
+            <!-- the first pic  -->
+            <div class="carousel-item active">
+                <img  class="d-block w-100 img-carousel" src="Pics/Hero/1.jpg" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>No excuses. Just results.</h5>
+                </div>
+            </div>
+
+            <!-- the second pic  -->
+            <div class="carousel-item ">
+                <img class="d-block w-100 img-carousel" src="Pics/Hero/2.jpg" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>You either suffer the pain of discipline or the pain of regret.</h5>
+                </div>
+            </div>
+
+            <!-- the third pic  -->
+            <div class="carousel-item">
+                <img class="d-block w-100 img-carousel" src="Pics/Hero/3.jpg" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Stop wishing. Start doing</h5>
+                </div>
+            </div>
+
+         </div>
+
+         <!-- the previous control  -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#GymSlideshow" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <!-- the next button  -->
+        <button class="carousel-control-next" type="button" data-bs-target="#GymSlideshow" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+
+    </div>
+
+    <!-- the product card  -->
+    <div class="row mt-5 d-flex justify-content-center ">
+        <!-- first card  -->
+        <div class="col col-md-3 m-3 animate__animated animate__fadeInUp">
+
+            <!-- the card  -->
+            <div class="card" >
+                <img src="Pics/Cards/Product card/1.jpg" class="card-img-top img-product-card" alt="">
+
+                <!-- the card body  -->
+                <div class="card-body">
+                    <h5 class="card-title animate__animated animate__zoomIn">Weight Training</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-warning">Join Now</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- second card  -->
+        <div class="col col-md-3  m-3">
+
+            <!-- the card  -->
+            <div class="card animate__animated animate__fadeInUp" >
+                <img src="Pics/Cards/Product card/2.jpg" class="card-img-top img-product-card" alt="">
+
+                <!-- the card body  -->
+                <div class="card-body">
+                    <h5 class="card-title animate__animated animate__zoomIn">Cardio</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-warning">Join Now</a>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- third card  -->
+        <div class="col col-md-3  m-3">
+
+            <!-- the card  -->
+            <div class="card animate__animated animate__fadeInUp" >
+                <img src="Pics/Cards/Product card/3.jpg" class="card-img-top img-product-card" alt="">
+
+                <!-- the card body  -->
+                <div class="card-body">
+                    <h5 class="card-title animate__animated animate__zoomIn">Crossfit</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-warning">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- the membership card  -->
+    <div class="row mt-5 d-flex justify-content-center ">
+      
+        <!-- first card  -->
+        <div class="col col-5 m-3 col-md-3 ">
+
+            <!-- the card  -->
+            <div class="card  h-100 animate__animated animate__fadeInUp">
+                
+                <!-- the card head  -->
+                <div class="card-header text-center" >
+                    <h2 class="card-title animate__animated animate__zoomIn">Standard</h2>
+                    <h4 class="animate__animated animate__zoomIn">$9.99</h4>
+                </div>
+
+                <!-- the card body  -->
+                <div class="card-body text">
+                    
+                    <h5 class="card-title animate__animated animate__zoomIn">Weight Training</h5>
+
+                    <p class="card-text">Access During Rush hours (12PM-6pm) </p>
+                    <p class="card-text">Access to basic equipments</p>
+                    <p class="card-text">Access to personal Coaching </p>
+                    <p class="card-text">Access to group sessions </p>
+
+                    <hr class="border-dark">
+
+                    <!-- card button  -->
+                    <a href="#" class="btn btn-warning w-100">Become a Member Now.</a>
+
+                </div>
+
+            </div>
+
+          
+
+        </div>
+    
+        <!-- second card  -->
+        <div class="col col-5 m-3 col-md-3">
+
+            <!-- the card  -->
+            <div class="card  h-100 border-warning animate__animated animate__fadeInUp">
+                
+                <!-- teh card header  -->
+                <div class="card-header text-center border-warning" >
+                    <h2 class="card-title animate__animated animate__zoomIn">premium</h2>
+                    <h4 class="animate__animated animate__zoomIn">$29.99</h4>
+                </div>
+
+                <!-- the card body -->
+                <div class="card-body ">
+                    
+                    <h5 class="card-title">Weight Training</h5>
+
+                    <p class="card-text">Access 24/7 </p>
+                    <p class="card-text">Access to all advanced equipments</p>
+                    <p class="card-text">Access to martial arts classes</p>
+                    <p class="card-text">Access to personal coaching with pros</p>
+
+                    <hr class="border-dark">
+
+                    <!-- card button -->
+                    <a href="#" class="btn btn-warning w-100">Become a Member Now.</a>
+
+                </div>
+
+            </div>
+
+          
+
+        </div>
+
+        <!-- third card  -->
+        <div class="col col-5 m-3 col-md-3">
+
+            <!-- the card  -->
+            <div class="card  h-100 animate__animated animate__fadeInUp">
+                
+                <!-- the card head -->
+                <div class="card-header text-center" >
+                    <h2 class="card-title animate__animated animate__zoomIn">Normal</h2>
+                    <h4 class="animate__animated animate__zoomIn">$15.99</h4>
+                </div>
+
+                <!-- the card body -->
+                <div class="card-body ">
+                    
+                    <h5 class="card-title animate__animated animate__zoomIn">Weight Training</h5>
+
+                    <p class="card-text">Access During Rush hours (12PM-6pm) </p>
+                    <p class="card-text">Access to basic equipments</p>
+                    <p class="card-text">Access to personal Coaching </p>
+                    <p class="card-text">Access to Group Training</p>
+
+                    <hr class="border-dark">
+
+                    <!-- card button -->
+                    <a href="#" class="btn btn-warning w-100">Become a Member Now.</a>
+
+                </div>
+
+            </div>
+
+          
+
+        </div>
+        
+    </div>
+
+
+    <!-- the testomonial card  -->
+
+    <!-- the text div  -->
+    <div class="d-flex  flex-column justify-content-center text-center border-dark w-50 m-auto mt-5">
+    <h2>What People Have to Say about us?</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quisquam incidunt iusto id quidem perferendis nobis esse distinctio dolorum fugiat possimus sit amet enim, totam deleniti eos odio libero quo!</p>
+    </div>
+
+    <!-- the horizontal card div  -->
+
+    <!-- first  -->
+    <div class="card mt-3  animate__animated animate__fadeInUp" style="max-width: 700px; margin-left: auto; margin-right: 40%;">
+
+        <!-- the row  -->
+        <div class="row g-0">
+           
+            <!-- the img col  -->
+            <div class="col col-md--4">
+                <img src="Pics/Cards/testmonial card/1.jpg"  class="img-fluid rounded-start" alt="">
+            </div>
+
+            <div class="col col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Nick Smith</h5>
+                    <p class="card-text">I have been growing my fitness since i was 12 years old. I have been going to the gym since i was 15 years old.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- second  -->
+    <div class="card mt-3  animate__animated animate__fadeInUp"  style="max-width: 700px; margin-left: 40%; margin-right: auto;">
+
+        <!-- the row  -->
+        <div class="row g-0">
+           
+            <!-- the img col  -->
+            <div class="col col-md--4">
+                <img src="Pics/Cards/testmonial card/2.jpg"  class="img-fluid rounded-start" alt="">
+            </div>
+
+            <div class="col col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title animate__animated animate__zoomIn">Eric Smith</h5>
+                    <p class="card-text">This gym has a very good environment. I have been going to the gym since i was 15 years old.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- the horizontal card div  -->
+
+    <!-- The map div  -->
+     <!-- second div -->
+    <div class="w-100 m-0 mt-5" style="height: 300px;">
+        <iframe class="map w-100 h-100"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.2043554289016!2d67.20171097482535!3d24.822684146769124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb331a77f0dcf09%3A0x81c4a612898abd81!2sSOS%20Technical%20Training%20Institute!5e0!3m2!1sen!2s!4v1772651067426!5m2!1sen!2s"
+        allowfullscreen=""
+        loading="lazy"></iframe>
+    </div>
+
+    <!-- the footer  -->
+    <footer class="bg-dark text-secondary">
+        
+        <!-- footer row  -->
+        <div class="row d-flex justify-content-center mb-3">
+
+            <!-- col 1  -->
+            <div class="col col-md-2 mt-3 ">
+
+                <!-- card start  -->
+                <div class="card bg-dark text-secondary animate__animated animate__fadeInUp">
+                    
+                    <!-- card body  -->
+                    <div class="card-body">
+                        
+                        <!-- header  -->
+                        <h3 class="text-white mb-3 animate__animated animate__zoomIn">About Sharp</h3>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia expedita possimus ex voluptates dicta tempore minima modi illo voluptate iure.</p>
+
+                        <!-- button div  -->
+                        <div class="d-flex gap-2">
+
+                            <button style="background-color: orange;" class="btn btn-warning rounded-circle">
+                                <i class="fa-brands fa-facebook" style="color: rgb(0, 0, 0);"></i>
+                            </button>
+
+                            <button style="background-color: orange;" class="btn btn-warning rounded-circle">
+                                <i class="fa-brands fa-twitter" style="color: rgb(0, 0, 0);"></i>
+                            </button>
+
+                            <button style="background-color: orange;" class="btn btn-warning rounded-circle">
+                                <i class="fa-brands fa-instagram" style="color: rgb(0, 0, 0);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- col-2  -->
+            <div class="col col-md-2 mt-3 ">
+
+                <!-- card start  -->
+                <div class="card bg-dark text-secondary animate__animated animate__fadeInUp">
+                    
+                    <!-- card body  -->
+                    <div class="card-body">
+                        
+                        <!-- header  -->
+                        <h3 class="text-white mb-3 animate__animated animate__zoomIn">SiteMap</h3>
+                        <p class="card-text mb-1">Home</p>
+                        <p class="card-text mb-1">Courses</p>
+                        <p class="card-text mb-1">About Us</p>
+                        <p class="card-text mb-1">Contact Us</p>
+                        <p class="card-text mb-1">Gym Classes</p>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- col-3  -->
+            <div class="col col-md-3 mt-3 ">
+
+                <!-- card start  -->
+                <div class="card bg-dark text-secondary animate__animated animate__fadeInUp">
+                    
+                    <!-- card body  -->
+                    <div class="card-body">
+                        
+                        <!-- header  -->
+                        <h3 class="text-white mb-3 animate__animated animate__zoomIn">Gym Timings</h3>
+
+                        <p class="card-text mb-1">Monday to Friday: <span style="color: orange;">7:00am - 10:00pm</span></p>
+                        <p class="card-text mb-1">Saturday: <span style="color: orange;">8:00am - 8:00pm</span></p>
+                        <p class="card-text mb-1">Saturday: <span style="color: orange;">11:00am till 7:00pm</span></p>
+
+
+                        <h3 class="text-white mt-3 mb-3">Off peak gym hours</h3>
+                        <p class="card-text ">7:00am - 4:00pm</p>
+                        <p class="card-text mt-0" style="color: orange;"><small>No restriction on weekends</small></p>
+
+                        
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- col-4  -->
+            <div class="col col-md-3 mt-3 ">
+
+                <!-- card start  -->
+                <div class="card bg-dark text-secondary animate__animated animate__fadeInUp">
+                    
+                    <!-- card body  -->
+                    <div class="card-body">
+                        
+                        <!-- header  -->
+                        <h3 class="text-white mb-3 animate__animated animate__zoomIn">Contacts</h3>
+
+                        <p class="card-text mb-1">Address: 14th floor, Ocean Tower. Plot G-3, Block 9, Scheme #5. Main Clifton Road، Block 9 Clifton, Karachi, Karachi City, Sindh 77550</p>
+                        <p class="card-text mt-3"><i class="fa-thin fa-envelope" style="color: rgb(239, 154, 71);"></i>corekarachi@gmail.cominfo@corekarachi.pk</p>
+                        <p class="card-text mt-3"><i class="fa-thin fa-phone" style="color: rgb(239, 154, 71);"></i>0301-333-9017</p>
+                        
+
+                        
+
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- second row  -->
+        <div class="row text-center border-top border-secondary p-3">
+            <h6>Copyright &copy; 2026 Reserved by Sharp</h6>
+        </div>
+        
+    </footer>
+    
+</body>
+</html>

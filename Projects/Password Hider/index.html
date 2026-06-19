@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.js"></script>
+    <style>
+        body{
+            background-color: rgb(240, 240, 240);
+        }
+    </style>
+</head>
+<body>
+    
+    <div style="width: 30%;" class="bg-light shadow m-auto p-3 d-flex flex-column justify-content-center align-item-center mt-5 rounded ">
+        <h3 class="text-center">Login</h3>
+        <div class="input-group">
+            <div class="form-floating">
+                <input class="form-control" id="input1" type="password" placeholder="Username">
+                <label for="#input1">Username</label>
+            </div>
+            <span class="input-group-text">
+                <input type="checkbox" id="check" style="display: none;">
+                <label for="check">👁</label>
+            </span>
+        </div>
+    
+    </div>
+
+    <script>
+
+        document.getElementById("check").onclick = function(){
+            document.getElementById("input1").type = this.checked ? "text": "password"
+        }
+
+    </script>
+</body>
+</html>

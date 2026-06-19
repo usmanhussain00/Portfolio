@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+
+    <style>
+
+        body{
+            min-height: 100vh;
+
+            background-image: linear-gradient(
+                140deg,
+                rgb(162, 206, 223),
+                rgb(155, 208, 228),
+                skyblue,
+                rgb(127, 205, 236),
+                rgb(73, 186, 231)
+            );
+        }
+
+        .weather-app{
+
+            width: 380px;
+            min-height: 500px;
+
+            color: white;
+
+            background-image: linear-gradient(
+                140deg,
+                #718f88,
+                rgb(102, 146, 137),
+                rgb(74, 150, 135),
+                rgb(56, 142, 125),
+                rgb(17, 131, 108),
+                rgb(7, 117, 95)
+            );
+        }
+
+        .head-input,
+        .head-btn{
+            transition: 0.3s;
+        }
+
+        .head-input:hover,
+        .head-btn:hover{
+            transform: translateY(-4px);
+        }
+
+        .weather-icon{
+            font-size: 5rem;
+        }
+
+        .temp{
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .desc{
+            font-size: 1.4rem;
+        }
+
+        .errorDisplay{
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+
+        <!-- WEATHER APP -->
+        <div class="weather-app rounded-4 shadow p-3 text-dark">
+
+            <!-- HEADER -->
+            <div class="text-center mb-4">
+                <h2 class="fw-light">Weather App</h2>
+            </div>
+
+            <!-- SEARCH -->
+            <form id="weatherForm" class="d-flex mb-4">
+
+                <input
+                id="cityInput"
+                type="search"
+                class="form-control me-2 bg-transparent border-dark text-white head-input"
+                placeholder="Enter city">
+
+                <button type="submit"
+                class="btn btn-outline-dark head-btn">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+            </form>
+
+            <!-- WEATHER CARD -->
+            <div id="card" class="text-center">
+
+                <h3>Search a city</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        const weatherForm = document.getElementById("weatherForm");
+        const cityInput = document.getElementById("cityInput");
+        const card = document.getElementById("card");
+
+        // INSERT YOUR API KEY HERE
+        const apikey = "5c6714704f0a61ecb68bcadb3e4ba3a0";
+
+
+        // FORM SUBMIT
+        weatherForm.addEventListener("submit", async event => {
+
+            event.preventDefault();
+
+            const city = cityInput.value.trim();
+
+            if(city){
+
+                try{
+
+                    const weatherData = await getWeatherData(city);
+
+                    displayWeatherInfo(weatherData);
+
+                }
+                catch(error){
+
+                    console.error(error);
+
+                    displayError(error.message);
+
+                }
+
+            }
+            else{
+
+                displayError("Please enter a city");
+
+            }
+
+        });
+
+
+        // FETCH WEATHER
+        async function getWeatherData(city){
+
+            const apiUrl =
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
+
+            const response = await fetch(apiUrl);
+
+            if(!response.ok){
+
+                throw new Error("Could not fetch weather data");
+
+            }
+
+            return await response.json();
+
+        }
+
+
+        // DISPLAY WEATHER
+        function displayWeatherInfo(data){
+
+            const {
+
+                name: city,
+
+                main: {
+                    temp,
+                    humidity,
+                    feels_like
+                },
+
+                weather: [{
+                    description,
+                    id
+                }],
+
+                wind: {
+                    speed
+                }
+
+            } = data;
+
+            const fahrenheit = (temp * 1.8 + 32).toFixed(1);
+
+            const icon = getWeatherIcon(id);
+
+            card.innerHTML = `
+
+                <div class="mt-3">
+
+                    <h2 class="mb-3">
+                        ${city}
+                    </h2>
+
+                    <div class="weather-icon mb-3">
+                        ${icon}
+                    </div>
+
+                    <div class="temp mb-2">
+                        ${temp.toFixed(1)}°C
+                    </div>
+
+                    <p class="mb-4">
+                        ${fahrenheit}°F
+                    </p>
+
+                    <h4 class="desc text-capitalize mb-4">
+                        ${description}
+                    </h4>
+
+                    <div class="row text-center mt-4">
+
+                        <div class="col-4">
+                            <p class="fw-bold mb-1">
+                                Humidity
+                            </p>
+
+                            <p>
+                                ${humidity}%
+                            </p>
+                        </div>
+
+                        <div class="col-4">
+                            <p class="fw-bold mb-1">
+                                Feels Like
+                            </p>
+
+                            <p>
+                                ${feels_like.toFixed(1)}°C
+                            </p>
+                        </div>
+
+                        <div class="col-4">
+                            <p class="fw-bold mb-1">
+                                Wind
+                            </p>
+
+                            <p>
+                                ${speed} km/h
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+
+        // WEATHER ICONS
+        function getWeatherIcon(weatherId){
+
+            if(weatherId >= 200 && weatherId < 300){
+
+                return `<i class="fa-solid fa-cloud-bolt"></i>`;
+
+            }
+
+            else if(weatherId >= 300 && weatherId < 600){
+
+                return `<i class="fa-solid fa-cloud-rain"></i>`;
+
+            }
+
+            else if(weatherId >= 600 && weatherId < 700){
+
+                return `<i class="fa-solid fa-snowflake"></i>`;
+
+            }
+
+            else if(weatherId >= 700 && weatherId < 800){
+
+                return `<i class="fa-solid fa-smog"></i>`;
+
+            }
+
+            else if(weatherId === 800){
+
+                return `<i class="fa-solid fa-sun"></i>`;
+
+            }
+
+            else{
+
+                return `<i class="fa-solid fa-cloud"></i>`;
+
+            }
+
+        }
+
+
+        // DISPLAY ERROR
+        function displayError(message){
+
+            card.innerHTML = "";
+
+            const errorDisplay = document.createElement("p");
+
+            errorDisplay.textContent = message;
+
+            errorDisplay.classList.add("errorDisplay");
+
+            card.appendChild(errorDisplay);
+
+        }
+
+    </script>
+
+</body>
+</html>

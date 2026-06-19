@@ -1,0 +1,129 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Helvetica -Neue', Helvetica, Arial , sans-serif;
+    background-color: #0d1117;
+    color: white ;
+}
+
+/*                   Background image                    */
+.hero{
+    height: 100vh;
+    width: 100%;
+
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2))
+    ,url(../../../Pics/Turkey/hero/1.jpg);
+
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+/*----------- nav bar styling -------------------- */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+.logo{
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span { font-weight: 300; color: #a5d8ff; }
+
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none ;
+    gap: 25px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    transition: 0.3s ;
+}
+
+.nav-links a:hover{color: white;}
+
+.btn-signup{
+    background: rgba(255,255,255,0.2);
+    padding: 10px 25px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+}
+
+
+/*------------ center content ------------- */
+.hero-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.hero-content h1{
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    max-width: 900px;
+}
+
+.hero-content p{
+    font-size: 1.1rem;
+    max-width: 650px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+
+/* ------------buttons-----------  */
+.cta-buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.btn{
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-filled{
+    background-color: #e3f2fd;
+    color: #333;
+}
+.btn-outlined{
+    border: 1px solid white;
+    color: white;
+}
+
+.btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+

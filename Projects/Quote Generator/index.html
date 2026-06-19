@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.js"></script>
+
+    <style>
+
+        body{
+            min-height: 100vh;
+
+            background-image: linear-gradient(
+                140deg,
+                rgb(234, 211, 211),
+                rgb(224, 188, 188),
+                pink,
+                rgb(254, 147, 165),
+                rgb(254, 161, 177),
+                rgb(255, 151, 169)
+            );
+        }
+
+        .quote-card{
+            width: 100%;
+            max-width: 500px;
+
+            min-height: 320px;
+
+            background-color: rgba(255,255,255,0.35);
+
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+
+            transition: 0.3s;
+        }
+
+        .quote-card:hover{
+            transform: translateY(-5px);
+        }
+
+        .quote-box{
+            min-height: 140px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        #quote{
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        #author{
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .generate-btn{
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container d-flex flex-column justify-content-center align-items-center vh-100 p-3">
+
+        <h2 class="fw-light mb-4 text-center">
+            JavaScript Quote Generator
+        </h2>
+
+        <div class="card quote-card border-0 rounded-4 p-4">
+
+            <!-- Quote -->
+
+            <div class="quote-box">
+
+                <p class="mb-0">
+
+                    <span class="fw-bold fs-4">"</span>
+
+                    <span id="quote" class="fw-light">
+                        Click the button to generate a quote
+                    </span>
+
+                    <span class="fw-bold fs-4">"</span>
+
+                </p>
+
+            </div>
+
+            <!-- Author -->
+
+            <p class="text-center text-danger fw-bold mt-3 mb-4">
+
+                <span class="fw-light">— </span>
+
+                <span id="author">
+                    Unknown
+                </span>
+
+            </p>
+
+            <!-- Button -->
+
+            <button class="btn btn-danger generate-btn py-2 fw-semibold" id="btn">
+
+                Generate Quote
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+
+<script>
+
+const Quotes = [
+    {
+        quote: "Be the change that you wish to see in the world.",
+        author: "Mahatma Gandhi"
+    },
+    {
+        quote: "I have a dream.",
+        author: "Martin Luther King Jr."
+    },
+    {
+        quote: "The only thing we have to fear is fear itself.",
+        author: "Franklin D. Roosevelt"
+    },
+    {
+        quote: "An unexamined life is not worth living.",
+        author: "Socrates"
+    },
+    {
+        quote: "To improve is to change; to be perfect is to change often.",
+        author: "Winston Churchill"
+    },
+    {
+        quote: "Education is the most powerful weapon which you can use to change the world.",
+        author: "Nelson Mandela"
+    },
+    {
+        quote: "Knowing yourself is the beginning of all wisdom.",
+        author: "Aristotle"
+    },
+    {
+        quote: "The future depends on what you do today.",
+        author: "Mahatma Gandhi"
+    },
+    {
+        quote: "Silence is a source of great strength.",
+        author: "Lao Tzu"
+    },
+    {
+        quote: "Nearly all men can stand adversity, but if you want to test a man’s character, give him power.",
+        author: "Abraham Lincoln"
+    }
+];
+
+
+
+    const quoteText = document.getElementById("quote");
+    const authorText = document.getElementById("author");
+    const btn = document.getElementById("btn");
+
+
+
+    btn.addEventListener("click", function(){
+
+        let randomIndex = Math.floor(Math.random() * Quotes.length);
+
+        quoteText.innerText = Quotes[randomIndex].quote;
+
+        authorText.innerText = Quotes[randomIndex].author;
+
+    });
+
+    </script>
+
+</body>
+</html>

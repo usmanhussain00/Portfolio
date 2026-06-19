@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.js"></script>
+    <style>
+        body{
+            background-image: linear-gradient(145deg,rgb(129, 129, 252),
+            rgb(114, 114, 255)
+            ,rgb(92, 92, 255),
+            rgb(69, 69, 255),
+            rgb(47, 47, 255),
+            rgb(24, 24, 255));
+        }
+    </style>
+</head>
+<body>
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="card justify-content-center p-3 shadow rounded-3">
+
+            <h3 class="text-center fw-light">Student Registration Form</h3>
+
+            <div class="mt-2">
+                <input id="studentInput" type="text" class="form-control w-100" placeholder="Name">
+            </div>
+
+            <div class="mt-2">
+                <input id="studentInput2" type="text" class="form-control w-100" placeholder="Course">
+            </div>
+
+            <div class="mt-3">
+                <button onclick="AddStudent()" class="btn btn-primary w-100">Add Student</button>
+            </div>
+
+            <table class="table table-striped mt-3 table-bordered">
+                <thead c>
+                    <tr>
+                        <td class="bg-primary">Student</td>
+                        <td class="bg-primary">Course</td>
+                        <td class="bg-primary">Action</td>
+                    </tr>
+                </thead>
+
+                <tbody id="table-Body" class="text-center ">
+                    
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        
+        function AddStudent(){
+            let input = document.getElementById('studentInput').value;
+            let input2 = document.getElementById('studentInput2').value;
+
+            if (input && input2 === ''){
+                alert('Please enter a student name');
+            }
+
+            // create tr 
+            let tr = document.createElement('tr');
+
+            // create td 
+            let td = document.createElement('td');
+            td.textContent = input;
+            let td2 = document.createElement('td');
+            td2.textContent = input2;
+
+            let td3 = document.createElement('td');
+
+            // delete button 
+            let deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn btn-danger btn-sm';
+            deleteBtn.textContent = 'Delete';
+
+            td3.appendChild(deleteBtn);
+
+            deleteBtn.onclick = function(){
+                tr.remove();
+            }
+
+            tr.appendChild(td);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+
+            document.getElementById('table-Body').appendChild(tr);
+            
+            //clear input
+            input.value = " ";
+        }
+
+    </script>
+</body>
+</html>

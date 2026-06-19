@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.js"></script>
+
+</head>
+<body>
+    <!-- Calculator App  -->
+    <!-- UI  -->
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-3 rounded shadow bg-secondary-subtle" style="width: 320px;">
+
+            <!-- Calculator input field -->
+            <div class=" fs-3 mb-3" >
+                <input type="text" class="form-control text-end " readonly>
+            </div>
+
+            <!-- First calculator row -->
+            <div class="row g-2">
+                <div class="col-3">
+                    <button class="btn btn-danger w-100 py-3">
+                        AC
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-danger w-100 py-3">
+                        DEL
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-warning w-100 py-3">
+                        %
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-warning w-100 py-3">
+                        ÷
+                    </button>
+                </div>
+            </div>
+
+            <!-- second calculator row  -->
+            <div class="row g-2 mt-1">
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        7
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        8
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        9
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-warning w-100 py-3">
+                        x
+                    </button>
+                </div>
+            </div>
+
+            <!-- third calculator row  -->
+            <div class="row g-2 mt-1">
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        4
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        5
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        6
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-warning w-100 py-3">
+                        -
+                    </button>
+                </div>
+            </div>
+
+            <!-- fourth calculator row  -->
+            <div class="row g-2 mt-1">
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        1
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        2
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        3
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-warning w-100 py-3">
+                        +
+                    </button>
+                </div>
+            </div>
+
+            <!-- Fifth calculator row  -->
+            <div class="row g-2 mt-1">
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        0
+                    </button>
+                </div>
+
+                <div class="col-3">
+                    <button class="btn btn-outline-dark w-100 py-3">
+                        .
+                    </button>
+                </div>
+
+
+                <div class="col-6">
+                    <button class="btn btn-info w-100 py-3">
+                        =
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Calculator App Backend (JS) -->
+    <script>
+        let display = document.querySelector("input");
+        let buttons = document.querySelectorAll("button");
+
+        buttons.forEach(function(button) {
+            button.addEventListener("click", function() {
+
+                let value = button.innerText;
+                
+
+                //AC Button
+                if(value === "AC"){
+                    display.value = "";
+                }
+
+                //DEL Button
+                else if(value === "DEL"){
+                    display.value = display.value.slice(0, -1);
+                }
+
+                else if(value === "="){
+                    let expression = display.value;
+
+                    //replace symbols
+                    expression = expression.replace(/x/g, "*");
+                    expression = expression.replace(/÷/g, "/");
+                    expression = expression.replace(/%/g, "/100");
+
+                    try{
+                        display.value = eval(expression);
+                    }
+
+                    catch{
+                        display.value = "Error";
+                    }
+                    
+                }
+
+                //Other buttons
+                else{
+                    display.value += value;
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+
+nav{
+width:100%;
+height:60px;
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 30px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:black;
+font-weight:500;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+width:100%;
+height:520px;
+background-image:url('../Pics/hamburger.jpg');
+background-position:center;
+background-size:cover;
+display:flex;
+align-items:flex-end;
+}
+
+.hero-text{
+color:white;
+font-size:40px;
+margin:40px;
+background:rgba(0,0,0,0.4);
+padding:10px 20px;
+border-radius:5px;
+}
+
+/* IMAGE SECTION */
+
+.divimage1,
+.divimage2{
+width:100%;
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:80px;
+flex-wrap:wrap;
+padding:20px;
+}
+
+.divimage1 div,
+.divimage2 div{
+width:40%;
+min-width:300px;
+}
+
+/* IMAGE STYLE */
+
+.img img{
+width:80%;
+height: 80%;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* TEXT */
+
+.textdiv{
+padding:10px;
+}
+
+.textdiv h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+.textdiv h3{
+margin-top:15px;
+}
+
+.textdiv p{
+margin-top:10px;
+margin-bottom:30px;
+line-height:1.6;
+}
+
+.subtitle{
+text-align:center;
+color:gray;
+margin-bottom:20px;
+}
+
+.light{
+color:rgba(0,0,0,0.5);
+}
+
+/* CONTACT */
+
+.contactdiv{
+width:80%;
+margin:100px auto;
+}
+
+.contactdiv h1{
+margin-bottom:25px;
+}
+
+.contactdiv p{
+margin-bottom:15px;
+}
+
+.location{
+color:rgb(91,144,177);
+font-weight:600;
+}
+
+.inputdiv{
+margin-top:30px;
+display:flex;
+flex-direction:column;
+}
+
+.inputdiv input{
+border:none;
+padding:10px;
+font-size:15px;
+margin-bottom: 20px;
+}
+
+.inputdiv hr{
+border:0.5px solid rgba(0,0,0,0.2);
+}
+
+.inputdiv input[type="submit"]{
+width:160px;
+background:black;
+color:white;
+margin-top:20px;
+cursor:pointer;
+padding:12px;
+transition:0.3s;
+}
+
+.inputdiv input[type="submit"]:hover{
+background:#333;
+}
+
+footer{
+    background-color: rgb(214, 214, 214);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width:900px){
+
+.divimage1 div,
+.divimage2 div{
+width:80%;
+}
+
+.hero{
+height:400px;
+}
+
+.contactdiv{
+width:90%;
+}
+
+}
+
+@media (max-width:600px){
+
+nav{
+flex-direction:column;
+height:auto;
+gap:10px;
+padding:15px;
+}
+
+.hero{
+height:300px;
+}
+
+.hero-text{
+font-size:28px;
+}
+
+.divimage1,
+.divimage2{
+flex-direction:column;
+align-items:center;
+}
+
+.divimage1 div,
+.divimage2 div{
+width:100%;
+}
+
+.contactdiv{
+width:95%;
+}
+
+}
+
