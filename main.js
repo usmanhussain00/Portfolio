@@ -123,7 +123,7 @@ setTimeout(() => {
       list.innerHTML = 0;
     }
     if (id === "clients") {
-      list.innerHTML = 15;
+      list.innerHTML = 2;
     }
   });
 }, 4000);

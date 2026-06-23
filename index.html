@@ -7,16 +7,112 @@
     <!-- Prevent color flashing start -->
     <!-- The code must be written at the top here -->
     <style>
-      html[data-theme="light"] {
+    html[data-theme="light"] {
         background: #efeff1;
       }
-      html[data-theme="dark"] {
+    html[data-theme="dark"] {
         background: #0a0a0c;
       }
+    .hero-content{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      max-width:900px;
+      margin:auto;
+      gap:40px;
+    }
+
+    .hero-content .buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero-content .social__handles{
+        justify-content:center;
+    }
+
+    .hero-content .points{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:20px;
+        width:100%;
+    }
+
+    
+  .project-tabs{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-bottom:40px;
+}
+
+  .project-tabs{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin:40px 0;
+  }
+
+  .tab-btn{
+        padding:12px 24px;
+        border:none;
+        border-radius:50px;
+        background:#151520;
+        color:white;
+        font-weight:600;
+        cursor:pointer;
+        transition:.3s;
+    }
+
+    .tab-btn:hover{
+        transform:translateY(-3px);
+    }
+
+    .tab-btn.active{
+        background:#6d28ff;
+        color:white;
+    }
+
+    .tab-btn.active{
+        background:var(--primary);
+        color:white;
+    }
+
+    .tab-btn:hover{
+        transform:translateY(-2px);
+    }
+    
+    .hero-badge{
+      display:inline-block;
+      padding:10px 20px;
+      border-radius:30px;
+      background:rgba(109,40,255,.15);
+      border:1px solid rgba(109,40,255,.3);
+      color:#b794ff;
+      font-weight:600;
+      margin-bottom:20px;
+      }
+    .value a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .value a:hover {
+      text-decoration: underline;
+    }
+    @media(max-width:768px){
+        .hero-content .points{
+            grid-template-columns:repeat(2,1fr);
+        }
+    }
     </style>
     <!-- javascript to prevent color flashing -->
     <script>
-     (function () {
+      (function () {
       const savedTheme = localStorage.getItem("theme");
 
       if (savedTheme) {
@@ -30,9 +126,10 @@
           "light"
         );
       } 
-  })();
+      })();
     
     </script>
+    
     <!-- Prevent color flashing end -->
 
     <!-- Google font -->
@@ -93,7 +190,6 @@
         <a href="#about" class="route">About</a>
         <a href="#services" class="route">Services</a>
         <a href="#projects" class="route">Projects</a>
-        <a href="#testimonials" class="route">Testimonaials</a>
         <a href="#contact" class="route">Contact</a>
       </div>
       <div class="flex__center">
@@ -127,7 +223,6 @@
           <a href="#about" class="navitem">About</a>
           <a href="#services" class="navitem">Services</a>
           <a href="#projects" class="navitem">Projects</a>
-          <a href="#testimonials" class="navitem">Testimonaials</a>
           <a href="#contact" class="navitem">Contact</a>
         </div>
       </div>
@@ -138,42 +233,39 @@
     <section id="header" class="bg__secondary">
       <div class="spotlight"></div>
       <div class="container">
-        <div class="grid">
-          <div class="me">
-            <img src="./assets/me.png" alt="" />
-          </div>
-          <div class="user__info">
-            <h2 class="sub__title">Hi 👋, I'm Usman Hussain</h2>
-            <h1 class="title">Frontend & Laravel Developer</h1>
-            <p class="description">
-              I specialize in building modern, responsive, and user-friendly web
-              interfaces. With a passion for clean code and seamless user
-              experiences, I turn ideas into digital solutions that not only
-              look great but also perform flawlessly. Let’s work together to
-              bring your vision to life!
-            </p>
-            <div class="flex buttons">
-              <div class="flex social__handles">
-                <a href="#" target="_blank" class="icon__container handle">
-                  <i data-custom-icon="fiverr"></i>
-                </a>
-                <a href="#" target="_blank" class="icon__container handle">
-                  <i data-custom-icon="github"></i>
-                </a>
-                <a href="#" target="_blank" class="icon__container handle">
-                  <i data-custom-icon="linkedin"></i>
-                </a>
-                <a href="#" target="_blank" class="icon__container handle">
-                  <i data-custom-icon="youtube"></i>
-                </a>
-              </div>
-              <a href="#contact" class="btn btn__primary">Contact Me</a>
-            </div>
-          </div>
+          <div class="hero-content">
 
-          <div class="points">
-            <div class="spotlight"></div>
-            <!-- point start -->
+    <!-- <div class="hero-badge">
+        Available for Freelance Work 🚀
+    </div> -->
+
+    <h2 class="sub__title">
+        Hi 👋, I'm Usman Hussain
+    </h2>
+
+    <h1 class="title">
+        Building Modern Web Experiences
+    </h1>
+
+    <!-- <p class="description">
+        I specialize in building modern, responsive, and user-friendly web
+        interfaces. With a passion for clean code and seamless user
+        experiences, I turn ideas into digital solutions.
+    </p> -->
+
+    <div class="flex buttons">
+        <!-- <div class="flex social__handles">
+            ...
+        </div> -->
+
+        <a href="#contact" class="btn btn__primary">
+            Contact Me
+        </a>
+    </div>
+
+    <div class="points">
+        <!-- all four stat cards here -->
+         <!-- point start -->
             <div class="point">
               <div class="flex">
                 <div class="odometer sub__title" id="experience"></div>
@@ -213,8 +305,19 @@
             </div>
             <!-- point end -->
           </div>
-        </div>
+    </div>
+
+</div>
+
       </div>
+
+          <!-- <div class="points">
+            <div class="spotlight"></div>
+            
+
+        </div> -->
+      </div>
+
     </section>
     <!-- Header section end -->
 
@@ -314,7 +417,7 @@ const developer ={
                 <i data-custom-icon="nextjs"></i> JavaScript
               </div>
               <div class="flex__center btn stack">
-                <i data-custom-icon="tailwindcss"></i> Laravel
+                <i data-custom-icon="tailwindcss"></i> PHP
               </div>
               <div class="flex__center btn stack">
                 <i data-custom-icon="tailwindcss"></i> MySQL
@@ -429,7 +532,11 @@ const developer ={
     <!-- Services section end -->
 
     <!-- Projects section start -->
+      
     <section id="projects">
+
+      
+
       <div class="container">
         <div class="section__header">
           <h2 class="sub__title">My Recent Projects</h2>
@@ -438,18 +545,35 @@ const developer ={
             responsive websites with clean design and seamless user experiences.
           </p>
         </div>
+
+        <div class="project-tabs">
+        <button class="tab-btn active" data-filter="all">
+            All Projects
+        </button>
+
+        <button class="tab-btn" data-filter="frontend">
+            Frontend
+        </button>
+
+        <button class="tab-btn" data-filter="javascript">
+            JavaScript
+        </button>
+
+        <button class="tab-btn" data-filter="php">
+            PHP
+        </button>
+      </div>
         <div class="projects">
 
           <!-- project start 1  -->
-          <div class="project">
+          <div class="project" data-category="frontend">
             <a href="Projects/HTML Website/index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/HTML Website/1.png" alt="" />
             </a>
             <div class="flex details">
               <h3 class="line__clamp__1">Restaurant Landing Page</h3>
               <p class="text__muted description line__clamp__4">
-                A sleek and modern designer portfolio built with HTML and CSS,
-                and Javascript.
+                A sleek and modern designer portfolio built with HTML and CSS.
               </p>
               <div class="flex bottom">
                 <a href="Projects/HTML Website/index.html" target="_blank" class="flex__center btn">
@@ -461,7 +585,7 @@ const developer ={
           <!-- project end -->
 
           <!-- project start 2  -->
-          <div class="project">
+          <div class="project" data-category="frontend">
             <a href="Projects/Tourism Website/-----TEST------/Index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/Tourism Website/1.png" alt="" />
             </a>
@@ -485,7 +609,7 @@ const developer ={
           <!-- project end -->
 
           <!-- project start 3 -->
-          <div class="project">
+          <div class="project" data-category="frontend">
             <a href="Projects/Gym Website/------Project-------/Index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/Gym Website/1.png" alt="" />
             </a>
@@ -507,7 +631,7 @@ const developer ={
           <!-- project end -->
 
           <!-- project start 4 -->
-          <div class="project">
+          <div class="project" data-category="javascript">
             <a href="Projects/Calculator/index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/Calculator/1.png" alt="" />
             </a>
@@ -529,7 +653,7 @@ const developer ={
           <!-- project end -->
 
           <!-- project start 5  -->
-          <div class="project">
+          <div class="project" data-category="javascript">
             <a href="Projects/Quote Generator/index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/Quote Generator/1.png" alt="" />
             </a>
@@ -549,7 +673,7 @@ const developer ={
           <!-- project end -->
 
           <!-- project start 6  -->
-          <div class="project">
+          <div class="project" data-category="javascript">
             <a href="Projects/Todo/index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/Todo App/1.png" alt="" />
             </a>
@@ -569,7 +693,7 @@ const developer ={
           <!-- project end -->
 
           <!-- project start 7  -->
-          <div class="project">
+          <div class="project" data-category="javascript">
             <a href="Projects/Weather App/index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/Weather App/1.png" alt="" />
             </a>
@@ -590,7 +714,7 @@ const developer ={
 
 
           <!-- project start 8  -->
-          <div class="project">
+          <div class="project" data-category="javascript">
             <a href="Projects/Iphone Switcher/index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/Iphone Switcher/1.png" alt="" />
             </a>
@@ -610,7 +734,7 @@ const developer ={
           <!-- project end -->
 
           <!-- project start 9  -->
-          <div class="project">
+          <div class="project" data-category="javascript">
             <a href="Projects/Table Generator/index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/Table Generator/1.png" alt="" />
             </a>
@@ -630,7 +754,7 @@ const developer ={
           <!-- project end -->
 
           <!-- project start 10  -->
-          <div class="project">
+          <div class="project" data-category="javascript">
             <a href="Projects/Password Hider/index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/Password Hider/1.png" alt="" />
             </a>
@@ -651,12 +775,12 @@ const developer ={
 
 
           <!-- project start 11  -->
-          <div class="project">
+          <div class="project" data-category="javascript">
             <a href="Projects/Clock/index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/Clock/1.png" alt="" />
             </a>
             <div class="flex details">
-              <h3 class="line__clamp__1">Password Hider</h3>
+              <h3 class="line__clamp__1">Clock</h3>
               <p class="text__muted description line__clamp__4">
                 A sleek and modern designer portfolio built with HTML and CSS,
                 and Javascript.
@@ -672,12 +796,12 @@ const developer ={
 
 
           <!-- project start 12  -->
-          <div class="project">
+          <div class="project" data-category="javascript">
             <a href="Projects/StopWatch/index.html" target="_blank" class="picture">
               <img src="./assets/Project Pics/StopWatch/1.png" alt="" />
             </a>
             <div class="flex details">
-              <h3 class="line__clamp__1">Password Hider</h3>
+              <h3 class="line__clamp__1">Stopwatch</h3>
               <p class="text__muted description line__clamp__4">
                 A sleek and modern designer portfolio built with HTML and CSS,
                 and Javascript.
@@ -690,7 +814,14 @@ const developer ={
             </div>
           </div>
           <!-- project end -->
-
+          <div class="project php-placeholder" data-category="php">
+            <div class="details">
+                <h3>Coming Soon</h3>
+                <p class="text__muted">
+                    PHP & Laravel projects will be added here soon.
+                </p>
+            </div>
+        </div>
           
 
         </div>
@@ -698,193 +829,6 @@ const developer ={
     </section>
     <!-- Projects section end -->
 
-    <!-- Testimonials start -->
-    <section id="testimonials">
-      <div class="section__header">
-        <h2 class="sub__title">
-          What My <span class="primary">Clients</span> Says
-        </h2>
-      </div>
-      <div class="swiper testimonials">
-        <div class="swiper-wrapper">
-          <!-- slide start 1-->
-          <div class="testimonial swiper-slide">
-            <div class="flex user">
-              <div class="profile">
-                <img src="./assets/client1.jpg" alt="" />
-              </div>
-              <div class="details">
-                <h3 class="name">Jessica Harper</h3>
-                <div class="flex row">
-                  <p class="text__muted position">Product Manager</p>
-                  <p class="primary company">TechNova Solutions</p>
-                </div>
-              </div>
-            </div>
-            <p class="text__muted content">
-              Emmanuel transformed our website’s user experience! His attention
-              to detail and ability to translate our vision into a seamless
-              interface was exceptional. We saw an immediate improvement in user
-              engagement.
-            </p>
-            <div class="flex__center stars__container">
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-            </div>
-          </div>
-          <!-- slide end -->
-
-          <!-- slide start 2-->
-          <div class="testimonial swiper-slide">
-            <div class="flex user">
-              <div class="profile">
-                <img src="./assets/client2.jpg" alt="" />
-              </div>
-              <div class="details">
-                <h3 class="name">Mark Thompson</h3>
-                <div class="flex row">
-                  <p class="text__muted position">CEO</p>
-                  <p class="primary company">Dynamic Designs</p>
-                </div>
-              </div>
-            </div>
-            <p class="text__muted content">
-              Working with Emmanuel was a breeze! He’s fast, communicative, and
-              his code is always clean and efficient. Our website looks and
-              performs better than ever.
-            </p>
-            <div class="flex__center stars__container">
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-            </div>
-          </div>
-          <!-- slide end -->
-
-          <!-- slide start 3-->
-          <div class="testimonial swiper-slide">
-            <div class="flex user">
-              <div class="profile">
-                <img src="./assets/client3.jpg" alt="" />
-              </div>
-              <div class="details">
-                <h3 class="name">Clara Mensah</h3>
-                <div class="flex row">
-                  <p class="text__muted position">Marketing Director</p>
-                  <p class="primary company">BrightPath Agency</p>
-                </div>
-              </div>
-            </div>
-            <p class="text__muted content">
-              Emmanuel’s frontend skills took our branding to the next level. He
-              was able to bring our design concepts to life with stunning
-              accuracy and creativity. I highly recommend him!
-            </p>
-            <div class="flex__center stars__container">
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-            </div>
-          </div>
-          <!-- slide end -->
-
-          <!-- slide start 4-->
-          <div class="testimonial swiper-slide">
-            <div class="flex user">
-              <div class="profile">
-                <img src="./assets/client4.jpg" alt="" />
-              </div>
-              <div class="details">
-                <h3 class="name">Samuel Okwuosa</h3>
-                <div class="flex row">
-                  <p class="text__muted position">CTO</p>
-                  <p class="primary company">Greenline Tech</p>
-                </div>
-              </div>
-            </div>
-            <p class="text__muted content">
-              Emmanuel is hands-down one of the best frontend developers I've
-              worked with. His expertise made our site not only look great but
-              perform flawlessly across all devices.
-            </p>
-            <div class="flex__center stars__container">
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-            </div>
-          </div>
-          <!-- slide end -->
-
-          <!-- slide start 5 -->
-          <div class="testimonial swiper-slide">
-            <div class="flex user">
-              <div class="profile">
-                <img src="./assets/client5.jpg" alt="" />
-              </div>
-              <div class="details">
-                <h3 class="name">Linda Ruiz</h3>
-                <div class="flex row">
-                  <p class="text__muted position">Co-Founder</p>
-                  <p class="primary company">PixelSpark Creative Studio</p>
-                </div>
-              </div>
-            </div>
-            <p class="text__muted content">
-              Emmanuel is incredibly talented. He consistently delivers
-              pixel-perfect designs and smooth user experiences. I appreciate
-              his dedication to excellence and innovation.
-            </p>
-            <div class="flex__center stars__container">
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-            </div>
-          </div>
-          <!-- slide end -->
-
-          <!-- slide start 6 -->
-          <div class="testimonial swiper-slide">
-            <div class="flex user">
-              <div class="profile">
-                <img src="./assets/client6.jpg" alt="" />
-              </div>
-              <div class="details">
-                <h3 class="name">Tunde Adebayo</h3>
-                <div class="flex row">
-                  <p class="text__muted position">Lead Developer</p>
-                  <p class="primary company">CodeWave</p>
-                </div>
-              </div>
-            </div>
-            <p class="text__muted content">
-              Emmanuel is a top-notch frontend developer! His work always
-              exceeds expectations, and he’s a pleasure to collaborate with. Our
-              site is now faster and more user-friendly than ever.
-            </p>
-            <div class="flex__center stars__container">
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-              <i data-custom-icon="star"></i>
-            </div>
-          </div>
-          <!-- slide end -->
-        </div>
-      </div>
-    </section>
-    <!-- Testimonials end -->
 
     <!-- Contact section start -->
     <section id="contact">
@@ -906,15 +850,21 @@ const developer ={
           <div class="box">
             <div class="cluster">
               <!-- option start -->
-              <div class="flex option">
-                <div class="icon__container">
-                  <i data-lucide="at-sign"></i>
-                </div>
-                <div class="details">
-                  <h3 class="name">Email</h3>
-                  <p class="text__muted value">usmanhussain12343@gmail.com</p>
-                </div>
+              <!-- option start -->
+            <div class="flex option">
+              <div class="icon__container">
+                <i data-lucide="at-sign"></i>
               </div>
+              <div class="details">
+                <h3 class="name">Email</h3>
+                <p class="text__muted value">
+                  <a href="mailto:usmanhussain12343@gmail.com">
+                    usmanhussain12343@gmail.com
+                  </a>
+                </p>
+              </div>
+            </div>
+<!-- option end -->
               <!-- option end -->
               <!-- option start -->
               <div class="flex option">
@@ -934,14 +884,14 @@ const developer ={
                 </div>
                 <div class="details">
                   <h3 class="name">Address</h3>
-                  <p class="text__muted value">Haji Wali Muhammad Goth, Bin Qasim Town</p>
+                  <p class="text__muted value">Karachi, Pakistan</p>
                 </div>
               </div>
               <!-- option end -->
             </div>
           </div>
         </div>
-        <form class="contact__form">
+        <form class="contact__form" action="https://formspree.io/f/xzdlbdoj" method="POST">
           <div class="spotlight"></div>
           <h2 class="sub__title">
             Let's work <span class="primary">together!</span>
@@ -980,7 +930,7 @@ const developer ={
             placeholder="Message"
             class="control"
           ></textarea>
-          <button type="button" class="btn btn__primary submit__btn">
+          <button type="submit" class="btn btn__primary submit__btn">
             Send Now
           </button>
         </form>
@@ -1024,19 +974,10 @@ const developer ={
               <a href="#about" class="route__item">About</a>
               <a href="#services" class="route__item">Services</a>
               <a href="#projects" class="route__item">Projects</a>
-              <a href="#testimonials" class="route__item">Testimonaials</a>
               <a href="#contact" class="route__item">Contact</a>
             </div>
           </div>
-          <div class="column">
-            <h3 class="group__name">Others</h3>
-            <div class="routes__container">
-              <a href="#" class="route__item">Privacy Policy</a>
-              <a href="#" class="route__item">Terms and Condition</a>
-              <a href="#" class="route__item">Cookie Policy</a>
-            </div>
-          </div>
-        </div>
+          
         <!-- end grid -->
         <div>
           <h3>Copyright &copy; 2025 Usman Hussain. All rights reserved.</h3>
@@ -1050,5 +991,39 @@ const developer ={
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="main.js"></script>
+    <script>
+      const tabs = document.querySelectorAll('.tab-btn');
+      const projects = document.querySelectorAll('.project');
+
+      tabs.forEach(tab => {
+
+          tab.addEventListener('click', () => {
+
+              tabs.forEach(btn =>
+                  btn.classList.remove('active')
+              );
+
+              tab.classList.add('active');
+
+              const filter = tab.dataset.filter;
+
+              projects.forEach(project => {
+
+                  if(
+                      filter === 'all' ||
+                      project.dataset.category === filter
+                  ){
+                      project.style.display = 'block';
+                  }
+                  else{
+                      project.style.display = 'none';
+                  }
+
+              });
+
+          });
+
+      });
+</script>
   </body>
 </html>
